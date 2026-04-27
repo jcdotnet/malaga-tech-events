@@ -4,15 +4,18 @@ import { useEvents } from './hooks/useEvents';
 import { Card } from './components/events/Card';
 import { Header } from './components/ui/Header';
 import { Filters } from './components/events/Filters';
+import { Search } from './components/events/Search';
 
 function App() {
 
   const [activeCategory, setActiveCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const { events } = useEvents();
 
-  const filteredEvents = events.filter(event => {
-    return activeCategory === 'all' || event.category === activeCategory;
-  });
+  const filteredEvents = events.filter(event => (
+    (activeCategory === 'all' || event.category === activeCategory) &&
+    `${event.title} ${event.description}`.toLowerCase().includes(searchQuery.toLowerCase())
+  ));
 
   return (
     <div className="container">
@@ -25,9 +28,13 @@ function App() {
 
       <section className="pb-10">
         <div className="row">
+          <Search 
+            value={searchQuery} 
+            onSearchChange={setSearchQuery} // passing setler directly instead of OnChange
+          />
           <Filters
             active={activeCategory}
-            onCategoryChange={setActiveCategory}
+            onCategoryChange={setActiveCategory} // same as above
           />
         </div>
       </section>
