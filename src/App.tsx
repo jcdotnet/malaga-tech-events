@@ -4,6 +4,8 @@ import { useEvents } from './hooks/useEvents';
 import { List } from './components/ui/List';
 import { Details } from './components/ui/Details';
 
+import 'leaflet/dist/leaflet.css';
+
 function App() {
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -13,7 +15,7 @@ function App() {
 
   return (
     <div className="main-content">
-      
+
       {selectedEvent ? <Details event={selectedEvent} onBackClick={() => setSelectedId(null)} />
         : ( <List events={events} onEventSelect={setSelectedId} /> )}
         

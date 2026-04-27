@@ -1,4 +1,5 @@
 import type { FullEvent } from '../../../types';
+import { Map } from './../../events/Map';
 import { formatDate, formatTime } from '../../utils/formatters';
 
 interface DetailsProps {
@@ -10,7 +11,6 @@ export const Details = ({ event, onBackClick }: DetailsProps) => {
 
   const date = formatDate(event.date, 'long');
   const time = formatTime(event.date);
-  { }
 
   return (
     <article className="bg-white">
@@ -71,10 +71,12 @@ export const Details = ({ event, onBackClick }: DetailsProps) => {
                       <p className="font-bold text-accent-dark">{event.venue.name}</p>
                       <p className="text-sm text-slate-500 mb-4">{event.venue.address}</p>
 
-                      <div className="w-full h-48 bg-slate-100 rounded-2xl relative overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center text-xs text-slate-400">
-                          Mapa: {event.venue.coordinates.lat}, {event.venue.coordinates.lng}
-                        </div>
+                      <div className="w-full h-48 rounded-xl overflow-hidden">
+                        <Map
+                          lat={event.venue.coordinates.lat}
+                          lng={event.venue.coordinates.lng}
+                          venue={event.venue.name}
+                        />
                       </div>
                     </div>
                   </div>
