@@ -15,9 +15,16 @@ export const CATEGORY: Record<EventCategory, string> = {
   expo: 'Exposición'
 };
 
-export const formatDate = (date: Date): string => {
-  return date.toLocaleDateString('es-ES', { 
-    day: 'numeric', 
-    month: 'short' 
+export const formatDate = (date: Date, style: 'long' | 'short'): string => {
+  return date.toLocaleDateString('es-ES', {
+    day: 'numeric',
+    month: style,
   });
 };
+
+export const formatTime = (date: Date): string => {
+  return date.toLocaleTimeString('es-ES', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+}

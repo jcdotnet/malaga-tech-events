@@ -11,7 +11,7 @@
   @apply bg-white/80 text-[10px] font-black uppercase tracking-wider text-accent-dark;
 } */
 
-.container {
+.main-content {
   @apply min-h-screen bg-slate-50;
 }
 .section {

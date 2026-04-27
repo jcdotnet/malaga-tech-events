@@ -3,16 +3,17 @@ import type { FullEvent } from "../../../types";
 
 interface CardProps {
   event: FullEvent;
+  onCardSelect: (id: string) => void;
 }
 
-export const Card = ({ event }: CardProps) => {
+export const Card = ({ event, onCardSelect }: CardProps) => {
 
-  const date = formatDate(event.date);
+  const date = formatDate(event.date, 'short');
 
   return (
-    <article className={`
+    <article onClick={() => onCardSelect(event.id)} className={`
       bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col
-      hover:shadow-md hover:border-accent transition-all duration-300`
+      hover:shadow-md hover:border-accent transition-all duration-300 cursor-pointer`
     }>
       <div className="relative h-48 overflow-hidden">
         <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover" />
@@ -34,13 +35,8 @@ export const Card = ({ event }: CardProps) => {
 
         <div className="mt-auto pt-4 border-t border-slate-100 space-y-2">
           <div className="flex items-center text-sm text-slate-500">
-            <a href={event.venue.website}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center hover:text-accent transition-colors w-fit">
-              <span className="mr-2">📍</span>
-              <span className="truncate">{event.venue.name}</span>
-            </a>
+            <span className="mr-2">📍</span>
+            <span className="truncate">{event.venue.name}</span>
           </div>
           <div className="flex items-center text-sm text-slate-500">
             <span className="mr-2">🗓️</span>

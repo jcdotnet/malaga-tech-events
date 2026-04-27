@@ -103,7 +103,7 @@ export const MOCK_EVENTS: Event[] = [
     id: 'e6',
     title: 'Afterwork Málaga Tech',
     description: 'Networking informal en el Muelle Uno para conectar con desarrolladores y emprendedores locales mientras cae el sol.',
-    date: new Date('2026-03-30T18:30:00'),
+    date: new Date('2026-04-30T18:30:00'),
     category: 'meetup',
     isFree: true,
     link: 'https://muelleuno.com ',
