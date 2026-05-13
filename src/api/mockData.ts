@@ -24,6 +24,14 @@ export const VENUES: Venue[] = [
     address: 'Bulevar Louis Pasteur, 35, 29071 Málaga',
     coordinates: { lat: 36.7157, lng: -4.4777 },
     website: 'https://www.uma.es/etsi-informatica/'
+  },
+  {
+    id: 'v4',
+    name: 'Innovation Campus - Malaga Palace',
+    description: 'Espacio de coworking y eventos tecnológicos.',
+    address: 'Calle Álamos, 7, 29012 Málaga',
+    coordinates: { lat: 36.7235, lng: -4.4192 },
+    website: 'https://innovationcampus.es'
   }
 ];
 
@@ -32,7 +40,8 @@ export const HOSTS: Host[] = [
   { id: 'h2', name: 'DES Show', website: 'https://des-show.com' },
   { id: 'h3', name: 'WordPress Málaga', website: 'https://www.meetup.com/es-ES/wordpress-malaga/' },
   { id: 'h4', name: 'FYCMA', website: 'https://fycma.com' },
-  { id: 'h5', name: 'Comic Con España', website: 'https://comicconmalaga.com ' }
+  { id: 'h5', name: 'Comic Con España', website: 'https://comicconmalaga.com ' },
+  { id: 'h6', name: 'TechMeetups', website: 'https://techmeetups.com /' }
 ];
 
 export const MOCK_EVENTS: Event[] = [
@@ -135,5 +144,17 @@ export const MOCK_EVENTS: Event[] = [
     imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000',
     venueId: 'v1',
     hostId: 'h4'
+  },
+  {
+    id: 'e9',
+    title: 'Malaga Tech Job Fair 2026',
+    description: 'Encuentro tecnológico dedicado al reclutamiento y el contacto directo entre candidatos y empresas del sector IT.',
+    date: new Date('2026-07-02T18:00:00'),
+    category: 'meetup',
+    isFree: true,
+    link: 'https://techmeetups.com/event/malaga-tech-job-fair-2026/',
+    imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000',
+    venueId: 'v4',
+    hostId: 'h6'
   }
 ];
